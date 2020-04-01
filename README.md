@@ -68,7 +68,7 @@ You are all set.
 1. `/EFI/CLOVER/ACPI/patched/SSDT-1.aml` renames GFX0 to GFX1, which is neccesary to inject GPU fakeID on SMBIOS MacPro6,1. If your GPU is natively supoorted, you can remove this SSDT file and disable **ATI Fake ID**/**Inject ATI** in Colver.
 2. This FirePro GPU doesn't support HiDPI output natively. To enable that, use this [script](https://github.com/xzhih/one-key-hidpi).
 ## Known issue
-I could't find a solution to get power management running on **dual Sandy Bridge** system. So I'm simply using `NullCPUPowerManagement.kext` to reduce power consumption. If you figured out how to deal with the CPUPM, please let me know!
+I couldn't find a solution to get power management running on **dual Sandy Bridge** system. So I'm simply using `NullCPUPowerManagement.kext` to reduce power consumption. If you figured out how to deal with the CPUPM, please let me know!
 ## Acknowledgement
 - Apple for the macOS
 - teamawesome for the initial idea of the guide
