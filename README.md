@@ -3,7 +3,7 @@ Still working on the Chinese version.
 
 This guide works on macOS Catalina (10.15.4). C602 is even more complicated than X79 so I don't recommend beginners try this build.
 
-I referenced the [guide](https://www.tonymacx86.com/threads/guide-asrock-rack-ep2c602.289060/) from teamawesome. This repo is the supplementary of my own setup.
+I referenced this [guide](https://www.tonymacx86.com/threads/guide-asrock-rack-ep2c602.289060/) from teamawesome. This repo is the supplementary of my own setup.
 
 ![image](Screenshot_en-us.png)
 
@@ -20,9 +20,9 @@ I referenced the [guide](https://www.tonymacx86.com/threads/guide-asrock-rack-ep
 
 ## Hardware Preparation
 ### Flash BIOS
-Unlike ASRock X79s, C602 motherboards have CFG locks. And for some reason, the `AppleIntelCPUPM` patch in Clover won't work for Sandy Bridges CPUs. So you have to flash the BIOS to unlock it. I'm providing my modified BIOS file in `Utilities/P602_4D1.90`. If you have other similar motherboard, simply use [UEFIPatch](https://github.com/LongSoft/UEFITool/releases) to patch it.
+Unlike ASRock X79s, C602 motherboards have CFG locks. And for some reason, the `AppleIntelCPUPM` patch in Clover won't work for Sandy Bridge EP. So you have to flash the BIOS to unlock it. I'm providing my modified BIOS file in `Utilities/P602_4D1.90`. If you have other similar motherboard, simply use [UEFIPatch](https://github.com/LongSoft/UEFITool/releases) to patch it.
 ### Flash NIC
-The motherboard has Intel 82574L which is natively supported. However the different subvendor ID prevents the system from loading the kext. So you need to use Linux to flash the EEPROM. (I'm using centOS as an example)
+The motherboard has Intel 82574L which is natively supported. However the different subvendor ID prevents the system from loading the driver. So you need to use Linux to flash the EEPROM. (I'm using centOS as an example)
 ```
 su root
 yum install -y ethtool
@@ -38,6 +38,7 @@ ethtool -E enp9s0 magic 0x10D38086 offset 0x17 value 0x00
 ethtool -E enp9s0 magic 0x10D38086 offset 0x18 value 0x86
 ethtool -E enp9s0 magic 0x10D38086 offset 0x19 value 0x80
 ```
+Note that the subvendor ID might be reverted back if you cut off the power supply
 ## BIOS Setup
 | Name | Option |
 | --- | --- |
@@ -47,9 +48,9 @@ ethtool -E enp9s0 magic 0x10D38086 offset 0x19 value 0x80
 | Serial Port 1 | Disabled |
 | Serial Port 2 | Disabled |
 
-* These options must be disabled. There're more options which you can play around. teamawesome provided a page-by-page guide to setup BIOS.
+* These options must be disabled. There're more options which you can play around. teamawesome provided a page-by-page PDF to setup BIOS.
 ## Post Installation
-I assume that you are not beginnners and know how to install Hackintosh. So I omitted all trivial steps.
+I assume that you are not beginnners and know how to install Hackintosh. So I'm skipping all trivial steps.
 
 This ASRock motherboard doesn't have `bcfg` command in UEFI shell. So you need first boot from USB and use the UEFI shell in Clover to add the boot menu. Assume that your EFI partition is `fs0`, run the following commands:
 ```
@@ -62,11 +63,11 @@ Now you should be able to boot from SSD.
 
 I have customized my USB Port files. However if your motherboard is different from mine, you may want to use `USBInjectAll.kext` and do that again by yourself.
 
-You are all set.
+And you are all set.
 
 ## Comments
-1. `/EFI/CLOVER/ACPI/patched/SSDT-1.aml` renames GFX0 to GFX1, which is neccesary to inject GPU fakeID on SMBIOS MacPro6,1. If your GPU is natively supoorted, you can remove this SSDT file and disable **ATI Fake ID**/**Inject ATI** in Colver.
-2. This FirePro GPU doesn't support HiDPI output natively. To enable that, use this [script](https://github.com/xzhih/one-key-hidpi).
+1. `/EFI/CLOVER/ACPI/patched/SSDT-1.aml` renames GFX0 to GFX1, which is neccesary to inject GPU fakeID on SMBIOS MacPro6,1. If your GPU is natively supoorted, you can remove this SSDT file and disable **ATI Fake ID**/**Inject ATI** in Colver. This file is motherboard specific. If you are using a different model, you should follow this [guide](https://www.tonymacx86.com/threads/black-screen-with-macpro-6-1-or-imac-15-or-imac-17-system-definition.183113/).
+2. This FirePro GPU doesn't support HiDPI output natively. To enable HiDPI on 4K monitors, use this [script](https://github.com/xzhih/one-key-hidpi).
 ## Known issue
 I couldn't find a solution to get power management running on **dual Sandy Bridge** system. So I'm simply using `NullCPUPowerManagement.kext` to reduce power consumption. If you figured out how to deal with the CPUPM, please let me know!
 ## Acknowledgement
