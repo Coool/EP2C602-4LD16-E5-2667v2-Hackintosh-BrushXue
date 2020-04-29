@@ -21,7 +21,7 @@ I referenced this [guide](https://www.tonymacx86.com/threads/guide-asrock-rack-e
 
 ## Firmware
 ### Flash BIOS
-Unlike ASRock X79s, C602 motherboards have CFG locks. So you need to flash the BIOS to unlock it. I'm providing my modified BIOS file in `Utilities/P602_4D1.90`. If you have other similar motherboard, simply use [UEFIPatch](https://github.com/LongSoft/UEFITool/releases) to patch it.
+Unlike ASRock X79s, C602 motherboards have CFG locks. So you need to flash the BIOS to unlock it. Simply use [UEFIPatch](https://github.com/LongSoft/UEFITool/releases) to patch the original file from ASRock.
 ### Flash NIC
 The motherboard has Intel 82574L which is natively supported. However the different subvendor ID prevents the system from loading the driver. So you need to use Linux to flash the EEPROM. (I'm using centOS as an example)
 ```
