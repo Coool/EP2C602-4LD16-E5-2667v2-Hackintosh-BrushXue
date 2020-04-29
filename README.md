@@ -74,7 +74,7 @@ And you are all set.
 ## Known Issue
 **PatchAPIC** has to be enabled in Clover to boot into the system.
 
-## Acknowledgement
+## Credits
 - Apple for the macOS
 - teamawesome for the initial idea of the guide
 - CloverHackyColor for CloverBootloader
