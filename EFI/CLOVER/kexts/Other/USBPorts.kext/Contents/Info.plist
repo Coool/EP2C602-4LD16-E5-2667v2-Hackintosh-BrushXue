@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>English</string>
 	<key>CFBundleGetInfoString</key>
-	<string>1.0 Copyright © 2018 Headsoft. All rights reserved.</string>
+	<string>1.0 Copyright © 2018-2020 Headsoft. All rights reserved.</string>
 	<key>CFBundleIdentifier</key>
 	<string>com.Headsoft.USBPorts</string>
 	<key>CFBundleInfoDictionaryVersion</key>
@@ -30,12 +30,22 @@
 			<string>AppleUSBMergeNub</string>
 			<key>IONameMatch</key>
 			<string>EH01</string>
+			<key>IOPCIPrimaryMatch</key>
+			<string>0x1d268086</string>
 			<key>IOProbeScore</key>
 			<integer>5000</integer>
 			<key>IOProviderClass</key>
 			<string>AppleUSBEHCIPCI</string>
 			<key>IOProviderMergeProperties</key>
 			<dict>
+				<key>kUSBSleepPortCurrentLimit</key>
+				<integer>2100</integer>
+				<key>kUSBSleepPowerSupply</key>
+				<integer>5100</integer>
+				<key>kUSBWakePortCurrentLimit</key>
+				<integer>2100</integer>
+				<key>kUSBWakePowerSupply</key>
+				<integer>5100</integer>
 				<key>port-count</key>
 				<data>
 				AQAAAA==
@@ -46,6 +56,8 @@
 					<dict>
 						<key>UsbConnector</key>
 						<integer>255</integer>
+						<key>name</key>
+						<string>PR11</string>
 						<key>port</key>
 						<data>
 						AQAAAA==
@@ -76,6 +88,8 @@
 				<dict>
 					<key>HP13</key>
 					<dict>
+						<key>name</key>
+						<string>HP13</string>
 						<key>port</key>
 						<data>
 						AwAAAA==
@@ -85,6 +99,8 @@
 					</dict>
 					<key>HP14</key>
 					<dict>
+						<key>name</key>
+						<string>HP14</string>
 						<key>port</key>
 						<data>
 						BAAAAA==
@@ -94,6 +110,8 @@
 					</dict>
 					<key>HP17</key>
 					<dict>
+						<key>name</key>
+						<string>HP17</string>
 						<key>port</key>
 						<data>
 						BwAAAA==
@@ -116,12 +134,22 @@
 			<string>AppleUSBMergeNub</string>
 			<key>IONameMatch</key>
 			<string>EH02</string>
+			<key>IOPCIPrimaryMatch</key>
+			<string>0x1d2d8086</string>
 			<key>IOProbeScore</key>
 			<integer>5000</integer>
 			<key>IOProviderClass</key>
 			<string>AppleUSBEHCIPCI</string>
 			<key>IOProviderMergeProperties</key>
 			<dict>
+				<key>kUSBSleepPortCurrentLimit</key>
+				<integer>2100</integer>
+				<key>kUSBSleepPowerSupply</key>
+				<integer>4700</integer>
+				<key>kUSBWakePortCurrentLimit</key>
+				<integer>2100</integer>
+				<key>kUSBWakePowerSupply</key>
+				<integer>4700</integer>
 				<key>port-count</key>
 				<data>
 				AQAAAA==
@@ -132,6 +160,8 @@
 					<dict>
 						<key>UsbConnector</key>
 						<integer>255</integer>
+						<key>name</key>
+						<string>PR21</string>
 						<key>port</key>
 						<data>
 						AQAAAA==
@@ -156,12 +186,14 @@
 			<dict>
 				<key>port-count</key>
 				<data>
-				AgAAAA==
+				AwAAAA==
 				</data>
 				<key>ports</key>
 				<dict>
 					<key>HP21</key>
 					<dict>
+						<key>name</key>
+						<string>HP21</string>
 						<key>port</key>
 						<data>
 						AQAAAA==
@@ -171,9 +203,22 @@
 					</dict>
 					<key>HP22</key>
 					<dict>
+						<key>name</key>
+						<string>HP22</string>
 						<key>port</key>
 						<data>
 						AgAAAA==
+						</data>
+						<key>portType</key>
+						<integer>0</integer>
+					</dict>
+					<key>HP23</key>
+					<dict>
+						<key>name</key>
+						<string>HP23</string>
+						<key>port</key>
+						<data>
+						AwAAAA==
 						</data>
 						<key>portType</key>
 						<integer>0</integer>

@@ -116,6 +116,8 @@
 		</array>
 		<key>FixHeaders</key>
 		<true/>
+		<key>PatchAPIC</key>
+		<true/>
 		<key>SSDT</key>
 		<dict>
 			<key>DropOem</key>
@@ -133,12 +135,12 @@
 			<string>1</string>
 		</dict>
 		<key>smartUPS</key>
-		<true/>
+		<false/>
 	</dict>
 	<key>Boot</key>
 	<dict>
 		<key>Arguments</key>
-		<string>npci=0x2000 -no_compat_check</string>
+		<string>npci=0x2000 -no_compat_check -xcpm</string>
 		<key>DefaultVolume</key>
 		<string>LastBootedVolume</string>
 		<key>Log</key>
@@ -149,11 +151,6 @@
 		<integer>5</integer>
 		<key>XMPDetection</key>
 		<false/>
-	</dict>
-	<key>CPU</key>
-	<dict>
-		<key>Type</key>
-		<string>0x0A01</string>
 	</dict>
 	<key>Devices</key>
 	<dict>
@@ -229,26 +226,26 @@
 		<key>KernelPm</key>
 		<false/>
 		<key>KernelXCPM</key>
-		<false/>
+		<true/>
 		<key>KextsToPatch</key>
 		<array>
 			<dict>
 				<key>Comment</key>
-				<string>ALPM IO Error AppleAHCIPort</string>
+				<string>External icons patch</string>
 				<key>Disabled</key>
 				<false/>
 				<key>Find</key>
-				<data>QGACAA==</data>
+				<data>RXh0ZXJuYWw=</data>
 				<key>InfoPlistPatch</key>
 				<false/>
 				<key>Name</key>
 				<string>AppleAHCIPort</string>
 				<key>Replace</key>
-				<data>AAAAAA==</data>
+				<data>SW50ZXJuYWw=</data>
 			</dict>
 			<dict>
 				<key>Disabled</key>
-				<true/>
+				<false/>
 				<key>Find</key>
 				<data>g/sPDw==</data>
 				<key>InfoPlistPatch</key>
@@ -260,7 +257,7 @@
 			</dict>
 			<dict>
 				<key>Disabled</key>
-				<true/>
+				<false/>
 				<key>Find</key>
 				<data>g/kPDw==</data>
 				<key>InfoPlistPatch</key>
@@ -269,90 +266,6 @@
 				<string>com.apple.driver.usb.AppleUSBXHCI</string>
 				<key>Replace</key>
 				<data>g/k/Dw==</data>
-			</dict>
-			<dict>
-				<key>Disabled</key>
-				<false/>
-				<key>Find</key>
-				<data>/w+EDwE=</data>
-				<key>InfoPlistPatch</key>
-				<false/>
-				<key>Name</key>
-				<string>AICPM Patch</string>
-				<key>Replace</key>
-				<data>/w+FDwE=</data>
-			</dict>
-			<dict>
-				<key>Disabled</key>
-				<false/>
-				<key>Find</key>
-				<data>AQABD4Q=</data>
-				<key>InfoPlistPatch</key>
-				<false/>
-				<key>Name</key>
-				<string>AICPM Patch</string>
-				<key>Replace</key>
-				<data>AQABD4U=</data>
-			</dict>
-			<dict>
-				<key>Disabled</key>
-				<false/>
-				<key>Find</key>
-				<data>yXQUDzIl/w8AAGs=</data>
-				<key>InfoPlistPatch</key>
-				<false/>
-				<key>Name</key>
-				<string>AICPM Patch</string>
-				<key>Replace</key>
-				<data>yesUDzIl/w8AAGs=</data>
-			</dict>
-			<dict>
-				<key>Disabled</key>
-				<false/>
-				<key>Find</key>
-				<data>yXQFDzKD4B9CiUQ7</data>
-				<key>InfoPlistPatch</key>
-				<false/>
-				<key>Name</key>
-				<string>AICPM Patch</string>
-				<key>Replace</key>
-				<data>yesFDzKD4B9CiUQ7</data>
-			</dict>
-			<dict>
-				<key>Disabled</key>
-				<false/>
-				<key>Find</key>
-				<data>AXRd</data>
-				<key>InfoPlistPatch</key>
-				<false/>
-				<key>Name</key>
-				<string>AICPM Patch</string>
-				<key>Replace</key>
-				<data>Aetd</data>
-			</dict>
-			<dict>
-				<key>Disabled</key>
-				<false/>
-				<key>Find</key>
-				<data>PnU4</data>
-				<key>InfoPlistPatch</key>
-				<false/>
-				<key>Name</key>
-				<string>AICPM Patch</string>
-				<key>Replace</key>
-				<data>PpCQ</data>
-			</dict>
-			<dict>
-				<key>Disabled</key>
-				<false/>
-				<key>Find</key>
-				<data>dRG5</data>
-				<key>InfoPlistPatch</key>
-				<false/>
-				<key>Name</key>
-				<string>AICPM Patch</string>
-				<key>Replace</key>
-				<data>6xG5</data>
 			</dict>
 		</array>
 	</dict>
