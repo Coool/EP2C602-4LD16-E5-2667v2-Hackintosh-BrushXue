@@ -1,4 +1,4 @@
-# ASRock  EP2C602-4L/D16 E5-2670 Hackintosh Guide
+# ASRock  EP2C602-4L/D16 E5-2667v2 Hackintosh Guide
 Still working on the Chinese version.
 
 This guide works on macOS Catalina (10.15.4). C602 is even more complicated than X79 so I don't recommend beginners try this build.
@@ -11,16 +11,18 @@ I referenced this [guide](https://www.tonymacx86.com/threads/guide-asrock-rack-e
 | Item | Brand | Model | Driver | Comment |
 |-----|-----|-----|-----|-----|
 | Motherboard | ASRock | EP2C602-4L/D16 | | |
-| CPU | Intel | Dual Xeon E5-2670 | | |
+| CPU | Intel | Dual Xeon E5-2667v2 | | |
 | RAM | Samsung | 16x8GB RECC DDR3L 1333 | | |
 | dGPU | AMD | FirePro W5100 4GB | built-in | FakeID 0x665C1002 |
-| SSD | Crucial | MX200 500GB | | |
+| Wireless | Fenvi| T919 | built-in | BCM94360CD |
 | Ethernet | Intel | 82574L | built-in | Flash Subvendor ID|
-| Monitor | Dell | U2718Q | | |
+| USB 3.0 | Inateck | KT4006 | built-in | FL1100 |
+| SSD | Crucial | MX200 500GB | | |
+| Monitor | Dell | U2720Q | | |
 
 ## Hardware Preparation
 ### Flash BIOS
-Unlike ASRock X79s, C602 motherboards have CFG locks. And for some reason, the `AppleIntelCPUPM` patch in Clover won't work for Sandy Bridge EP. So you have to flash the BIOS to unlock it. I'm providing my modified BIOS file in `Utilities/P602_4D1.90`. If you have other similar motherboard, simply use [UEFIPatch](https://github.com/LongSoft/UEFITool/releases) to patch it.
+Unlike ASRock X79s, C602 motherboards have CFG locks. So you need to flash the BIOS to unlock it. I'm providing my modified BIOS file in `Utilities/P602_4D1.90`. If you have other similar motherboard, simply use [UEFIPatch](https://github.com/LongSoft/UEFITool/releases) to patch it.
 ### Flash NIC
 The motherboard has Intel 82574L which is natively supported. However the different subvendor ID prevents the system from loading the driver. So you need to use Linux to flash the EEPROM. (I'm using centOS as an example)
 ```
@@ -67,7 +69,8 @@ And you are all set.
 
 ## Comments
 1. `/EFI/CLOVER/ACPI/patched/SSDT-1.aml` renames GFX0 to GFX1, which is neccesary to inject GPU fakeID on SMBIOS MacPro6,1. If your GPU is natively supoorted, you can remove this SSDT file and disable **ATI Fake ID**/**Inject ATI** in Colver. This file is motherboard specific. If you are using a different model, you should follow this [guide](https://www.tonymacx86.com/threads/black-screen-with-macpro-6-1-or-imac-15-or-imac-17-system-definition.183113/).
-2. This FirePro GPU doesn't support HiDPI output natively. To enable HiDPI on 4K monitors, use this [script](https://github.com/xzhih/one-key-hidpi).
+
+2. I'm enforcing the CPU running in XCPM mode, which means only LFM, base and turbo frequencies.
 ## Known issue
 I couldn't find a solution to get power management running on **dual Sandy Bridge** system. So I'm simply using `NullCPUPowerManagement.kext` to reduce power consumption. If you figured out how to deal with the CPUPM, please let me know!
 ## Acknowledgement
