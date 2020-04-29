@@ -80,6 +80,4 @@ And you are all set.
 - CloverHackyColor for CloverBootloader
 - Acidanthera for Lilu, Whatevergreen and VirtualSMC
 - naveenkrdy for AppleMCEReporterDisabler
-- corpnewt for NullCPUPowerManagement
-- mackie100 for Clover Configurator
-- headkaze for Hackintool
+- Piker-Alpha for ssdtPRGen
