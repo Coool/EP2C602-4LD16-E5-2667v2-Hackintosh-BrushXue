@@ -4,7 +4,7 @@ This guide works on macOS Big Sur (11.2.1). C602 is even more complicated than X
 
 For hardware configurations I mostly referenced this [guide](https://www.tonymacx86.com/threads/guide-asrock-rack-ep2c602.289060/).
 
-![image](Screenshot.png)
+![image](ScreenShot.png)
 
 ## Hardware
 | Item | Brand | Model | Driver | Comment |
