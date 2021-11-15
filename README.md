@@ -1,6 +1,6 @@
 # ASRock  EP2C602-4L/D16 E5-2667v2 Hackintosh Guide
 
-This guide works on macOS Big Sur (11.2.1). C602 is even more complicated than X79 so I don't recommend beginners try this build.
+This guide works on macOS Monterey (12.0.1). C602 is even more complicated than X79 so I don't recommend beginners try this build.
 
 For hardware configurations I mostly referenced this [guide](https://www.tonymacx86.com/threads/guide-asrock-rack-ep2c602.289060/).
 
@@ -68,10 +68,28 @@ I have customized my USB Port files. However if your motherboard is different fr
 
 3. `/EFI/CLOVER/ACPI/patched/SSDT-RENAME.aml` renames GFX0 to GFX1, which is required to inject GPU fakeID. This file is PCIe slot specific. If you are using a different slot, you should follow this [guide](https://www.tonymacx86.com/threads/black-screen-with-macpro-6-1-or-imac-15-or-imac-17-system-definition.183113/). If you have better solutions please let me know.
 
+## Intel Power Gadget
+1. Extract installer
+```
+pkgutil --expand Install\ Intel\ Power\ Gadget.pkg ./tmp
+```
+2. Edit `./tmp/Distribution`, delete the following part
+```
+                if(!(system.sysctl('hw.packages') == '1')) {
+                    my.result.title = 'Multiple CPU Packages Not Supported';
+                    my.result.message = 'Intel® Power Gadget does not currently support systems with more than one CPU package.';
+                    my.result.type = 'Fatal';
+                    return false;
+                }
+```
+3. Re-pack installer
+```
+pkgutil --flatten ./tmp Intel.pkg
+```
+4. Double click to install.
+
 ## Known Issue
 USB 3.0 will interfere with Wi-Fi. No solution for now. Maybe a Faraday cage can work?
-
-Intel Power Gadgets won't start if you are using Big Sur + dual socket. So verify the CPU PM in Catalina first then upgrade.
 
 ## Credits
 - Apple for the macOS
