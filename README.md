@@ -87,6 +87,7 @@ pkgutil --expand Install\ Intel\ Power\ Gadget.pkg ./tmp
 pkgutil --flatten ./tmp Intel.pkg
 ```
 4. Double click to install.
+
 ![image](Intel.png)
 ## Known Issue
 USB 3.0 will interfere with Wi-Fi. No solution for now. Maybe a Faraday cage can work?
