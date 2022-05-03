@@ -1,3 +1,5 @@
+# This repo is archived as some hardware is transferred to this build: https://github.com/BrushXue/Dell-PowerEdge-T30-OpenCore
+
 # ASRock  EP2C602-4L/D16 E5-2667v2 Hackintosh Guide
 
 This guide works on macOS Monterey (12.0.1). C602 is even more complicated than X79 so I don't recommend beginners try this build.
